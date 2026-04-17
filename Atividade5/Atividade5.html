@@ -4,11 +4,66 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pesquisa de Filme</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin-top: 12px;
+        font-weight: bold;
+      }
+
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        box-sizing: border-box;
+      }
+
+      button {
+        margin-top: 15px;
+        cursor: pointer;
+      }
+
+      #resultado {
+        margin-top: 20px;
+        background: #eeeeee;
+        padding: 15px;
+        border-radius: 8px;
+        white-space: pre-line;
+      }
+
+      #status {
+        margin-top: 15px;
+        text-align: center;
+      }
+    </style>
   </head>
+
   <body>
     <div class="container">
       <h1>Pesquisa de Opinião</h1>
-      <h2>Cadastro de 3 pessoas</h2>
+      <h2>Cadastro de 45 pessoas</h2>
 
       <form id="formPesquisa">
         <label for="idade">Idade:</label>
@@ -35,58 +90,8 @@
       </form>
 
       <div id="status"></div>
-      <div id="resultado"></div>
     </div>
   </body>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 500px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    h1,
-    h2 {
-      text-align: center;
-    }
-
-    label {
-      display: block;
-      margin-top: 12px;
-      font-weight: bold;
-    }
-
-    input,
-    select,
-    button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      box-sizing: border-box;
-    }
-
-    button {
-      margin-top: 15px;
-      cursor: pointer;
-    }
-
-    #resultado {
-      margin-top: 20px;
-      background: #eeeeee;
-      padding: 15px;
-      border-radius: 8px;
-      white-space: pre-line;
-    }
-  </style>
 
   <script>
     let totalPessoas = 45;
@@ -108,7 +113,9 @@
     const resultado = document.getElementById("resultado");
 
     status.innerHTML =
-      "<p><strong>Preenchendo dados da pessoa 1 de 3</strong></p>";
+      "<p><strong>Preenchendo dados da pessoa 1 de " +
+      totalPessoas +
+      "</strong></p>";
 
     form.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -148,7 +155,9 @@
         status.innerHTML =
           "<p><strong>Preenchendo dados da pessoa " +
           pessoaAtual +
-          " de 3</strong></p>";
+          " de " +
+          totalPessoas +
+          "</strong></p>";
         form.reset();
       } else {
         let mediaIdade = somaIdade / totalPessoas;
