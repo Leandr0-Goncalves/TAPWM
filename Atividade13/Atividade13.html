@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <label for="texto">Digite um texto:</label>
+    <input type="text" id="texto" name="texto">
+
+    <br><br>
+
+    <input type="radio" id="maiusculas" name="opcao" onclick="transformarMaiusculas();">
+    <label for="maiusculas">Transformar em letras maiúsculas</label>
+
+    <br><br>
+
+    <input type="radio" id="minusculas" name="opcao" onclick="transformarMinusculas();">
+    <label for="minusculas">Transformar em letras minúsculas</label>
+
+    <script>
+        function transformarMaiusculas() {
+            let texto = document.getElementById("texto");
+            texto.value = texto.value.toUpperCase();
+        }
+
+        function transformarMinusculas() {
+            let texto = document.getElementById("texto");
+            texto.value = texto.value.toLowerCase();
+        }
+    </script>
+</body>
+</html>
