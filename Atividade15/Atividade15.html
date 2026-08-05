@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Atividade 15</title>
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+    }
+
+    .caixa{
+        text-align:center;
+        border:1px solid black;
+        padding:30px;
+        border-radius:8px;
+    }
+
+    select{
+        margin-top:20px;
+        padding:5px;
+        width:250px;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="caixa">
+
+    <h2>Cursos da Fatec Sorocaba</h2>
+
+    <select onchange="abrirCurso(this.value)">
+
+        <option value="">Escolha um curso</option>
+
+        <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
+
+        <option value="Logística">Logística</option>
+
+        <option value="Polímeros">Polímeros</option>
+
+        <option value="Fabricação Mecânica">Fabricação Mecânica</option>
+
+        <option value="Gestão Empresarial">Gestão Empresarial</option>
+
+    </select>
+
+</div>
+
+<script>
+
+function abrirCurso(curso){
+
+    if(curso == ""){
+        return;
+    }
+
+    let resposta = confirm("Deseja abrir a página do curso " + curso + "?");
+
+    if(resposta){
+
+        let janela = window.open("", "", "width=600,height=300");
+
+        janela.document.write("<h1>"+curso+"</h1>");
+
+        if(curso=="ADS"){
+            janela.document.write("<p>O curso que definitivamente é melhor que logística.</p>");
+        }
+
+        if(curso=="Logística"){
+            janela.document.write("<p>Curso voltado a tirar carta de moto e caminhão, só pra fazer entrega.</p>");
+        }
+
+        if(curso=="Polímeros"){
+            janela.document.write("<p>Curso voltado a muitos meros, por isso é poli (o acento é só charme).</p>");
+        }
+
+        if(curso=="Fabricação Mecânica"){
+            janela.document.write("<p>Cria mecânica.</p>");
+        }
+
+        if(curso=="Gestão Empresarial"){
+            janela.document.write("<p>Faz pré-natal de empresas gestantes.</p>");
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
