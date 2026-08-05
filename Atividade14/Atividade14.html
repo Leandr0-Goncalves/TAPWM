@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Atividade 14</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .formulario {
+      padding: 20px;
+      width: 400px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .campo {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      gap: 10px;
+    }
+
+    .campo label {
+      width: 90px;
+      text-align: left;
+      flex-shrink: 0;
+    }
+
+    .campo input,
+    .campo textarea {
+      flex: 1;
+    }
+
+    textarea {
+      height: 90px;
+      resize: none;
+    }
+
+    .radios {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+<form name="nomeform" class="formulario" onsubmit="return validar()">
+  <h2>Formulário Principal</h2>
+
+  <div class="campo">
+    <label>Nome:</label>
+    <input type="text" name="nome">
+  </div>
+
+  <div class="campo">
+    <label>Email:</label>
+    <input type="email" name="email">
+  </div>
+
+  <div class="campo">
+    <label>Comentário:</label>
+    <textarea name="comentario"></textarea>
+  </div>
+
+  <p><b>Pesquisa:</b></p>
+  <p>Primeira vez nessa página?</p>
+
+  <div class="radios">
+    <input type="radio" name="pesquisa" value="sim"> Sim
+    <input type="radio" name="pesquisa" value="nao"> Não
+  </div>
+
+  <button type="submit">Enviar</button>
+  <button type="reset">Limpar</button>
+</form>
+
+<script>
+function validar(){
+
+    let nome = document.nomeform.elements[0].value;
+    let comentario = document.nomeform.elements[2].value;
+
+    if(nome.length < 10){
+        alert("O nome deve ter no mínimo 10 caracteres.");
+        return false;
+    }
+
+    if(comentario.length < 20){
+        alert("O comentário deve ter no mínimo 20 caracteres.");
+        return false;
+    }
+
+    let pesquisa = document.getElementsByName("pesquisa");
+    let resposta = "";
+
+    for(let i=0; i<pesquisa.length; i++){
+        if(pesquisa[i].checked){
+            resposta = pesquisa[i].value;
+        }
+    }
+
+    if(resposta === ""){
+        alert("Selecione uma opção da pesquisa.");
+        return false;
+    }
+
+    if(resposta === "sim"){
+        alert("Volte sempre à esta página!");
+    } else {
+        alert("Que bom que você voltou a visitar esta página!");
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>
